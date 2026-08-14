@@ -8,30 +8,87 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return "ini adalah halaman daftar teacher";
+        $title = "Sistem Sekolah - Daftar guru";
+        $teachers = [
+
+            [
+
+                'id' => 1,
+
+                'nip' => '198501012024',
+
+                'name' => 'Budi Santoso',
+
+                'gender' => 'Laki-Laki',
+
+                'subject' => 'Akuntansi Dasar',
+
+                'phone' => '081234560001',
+
+                'status' => 'Aktif',
+
+            ],
+
+            [
+
+                'id' => 2,
+
+                'nip' => '198703152024',
+
+                'name' => 'Siti Aminah',
+
+                'gender' => 'Perempuan',
+
+                'subject' => 'Jaringan Komputer',
+
+                'phone' => '081234560002',
+
+                'status' => 'Aktif',
+
+            ]
+
+        ];
+        return view('teachers.index', [
+        'title' => $title,
+        'teachers' => $teachers
+        ]);
     }
     public function show(string $id)
     {
-        return"Menampilkan detail teacher dengan ID: {$id}";
+        $title = "Sistem Sekolah - Menampilkan data guru";
+        return view('teachers.show', [
+        'title' => $title,
+        ]);
     }
 
-    public function create(){
-        return"Ini adalah halaman tambah teacher";
+    public function create()
+    {
+        $title = "Sistem Sekolah - Membuat Data Guru";
+        return view('teachers.create', [
+            'title' => $title,
+        ]);
     }
 
-    public function edit(string $id){
-        return"Ini adalah halaman edit teacher";
-    }
-    
-    public function store(){
-        return"Melakukan penambahan data teacher baru";
-    }
-
-    public function update(string $id){
-        return"Mengubah data teacher dengan ID: {$id}";
+    public function edit(string $id)
+    {
+         $title = "Sistem Sekolah - edit guru";
+        return view('teachers.edit', [
+        'title' => $title,
+        ]);
     }
 
-    public function destroy(string $id){
-        return"Menghapus data teacher dengan ID: {$id}";
+    public function store()
+    {
+        return "Melakukan penambahan data teacher baru";
+    }
+
+    public function update(string $id)
+    {
+        return "Mengubah data teacher dengan ID: {$id}";
+    }
+
+    public function destroy(string $id)
+    {
+        return "Menghapus data teacher dengan ID: {$id}";
     }
 }

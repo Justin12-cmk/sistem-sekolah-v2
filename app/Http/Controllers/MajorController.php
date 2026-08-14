@@ -11,7 +11,61 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return"ini adalah halaman daftar Major";
+        $title = "Sistem Sekolah - Daftar jurusan";
+        $majors = [
+
+            [
+
+                'id' => 1,
+
+                'code' => 'AKL',
+
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+
+            ],
+
+            [
+
+                'id' => 2,
+
+                'code' => 'TKJ',
+
+                'name' => 'Teknik Komputer dan Jaringan',
+
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+
+            ],
+
+            [
+
+                'id' => 3,
+
+                'code' => 'BID',
+
+                'name' => 'Bisnis Digital',
+
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+
+            ],
+
+        ];
+        return view('majors.index', [
+        'title' => $title,
+        'majors' => $majors
+        ]);
+    }
+
+        /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $title = "Sistem Sekolah - Membuat data jurusan";
+        return view('majors.show', [
+        'title' => $title,
+        ]);
     }
 
     /**
@@ -19,7 +73,21 @@ class MajorController extends Controller
      */
     public function create()
     {
-        return"Ini adalah halaman tambah Major";
+        $title = "Sistem Sekolah - Membuat data jurusan";
+        return view('majors.create', [
+        'title' => $title,
+        ]);
+    }
+    
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $title = "Sistem Sekolah - Mengubah data jurusan";
+        return view('majors.edit', [
+        'title' => $title,
+        ]);
     }
 
     /**
@@ -27,31 +95,16 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        return"Melakukan penambahan data Major baru";
+        return "Melakukan penambahan data Major baru";
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        return"Menampilkan detail Major dengan ID: {$id}";
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        return"Ini adalah halaman edit Major";
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        return"Mengubah data Major dengan ID: {$id}";
+        return "Mengubah data Major dengan ID: {$id}";
     }
 
     /**
@@ -59,6 +112,6 @@ class MajorController extends Controller
      */
     public function destroy(string $id)
     {
-        return"Mengubah data Major dengan ID: {$id}";
+        return "Mengubah data Major dengan ID: {$id}";
     }
 }

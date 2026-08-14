@@ -19,22 +19,22 @@ Route::name('students.')->prefix('students')->group(function(){
 Route::get('/', [StudentController::class,'index'])->name('index');
 
 // Halaman detail siswa
-Route::get('/{id}',[StudentController::class, 'show'])->name('show');
+Route::get('/{id}',[StudentController::class, 'show'])->name('show')->whereNumber('id');
 
 //Halaman Tambah Siswa
 Route::get('/create',[StudentController::class, 'create'])->name('create');
 
 //Halaman edit
-Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit')->whereNumber('id');
 
 //Logika Tambah Siswa
 Route::post('/', [StudentController::class, 'store'])->name('store');
 
 //Logika Edit Siswa
-Route::put('/{id}', [StudentController::class, 'Update'])->name('update');
+Route::put('/{id}', [StudentController::class, 'Update'])->name('update')->whereNumber('id');
 
 //Logika Hapus Siswa
-Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
+Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy')->whereNumber('id');
 
 });
 
@@ -42,25 +42,25 @@ Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 Route::name('teachers.')->prefix('teachers')->group(function(){
 
 // Halaman daftar Teacher
-    Route::get('/', [TeacherController::class,'index'])->name('index');
+Route::get('/', [TeacherController::class,'index'])->name('index');
 
 // Halaman detail Teacher
-Route::get('/{id}',[TeacherController::class, 'show'])->name('show');
+Route::get('/{id}',[TeacherController::class, 'show'])->name('show')->whereNumber('id');
 
 //Halaman Tambah Teacher
 Route::get('/create',[TeacherController::class, 'create'])->name('create');
 
 //Halaman edit
-Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit')->whereNumber('id');
 
 //Logika Tambah Teacher
 Route::post('/', [TeacherController::class, 'store'])->name('store');
 
 //Logika Edit Teacher
-Route::put('/{id}', [TeacherController::class, 'Update'])->name('update');
+Route::put('/{id}', [TeacherController::class, 'Update'])->name('update')->whereNumber('id');
 
 //Logika Hapus Teacher
-Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
+Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy')->whereNumber('id');
 
 });
 
@@ -71,24 +71,24 @@ Route::name('schoolclass.')->prefix('schoolclass')->group(function(){
  Route::get('/', IndexController::class)->name('index');
 
 // Halaman detail SchoolClass
-Route::get('/{id}', ShowController::class)->name('show');
+Route::get('/{id}', ShowController::class)->name('show')->whereNumber('id');
 
 //Halaman Tambah SchoolClass
 Route::get('/create', CreateController::class)->name('create');
 
 //Halaman edit
-Route::get('/{id}/edit', EditController::class)->name('edit');
+Route::get('/{id}/edit', EditController::class)->name('edit')->whereNumber('id');
 
 //Logika Tambah SchoolClass
 Route::post('/', StoreController::class)->name('store');
 
 //Logika Edit SchoolClass
-Route::put('/{id}', UpdateController::class)->name('update');
+Route::put('/{id}', UpdateController::class)->name('update')->whereNumber('id');
 
 //Logika Hapus SchoolClass
-Route::delete('/{id}', DestroyController::class)->name('destroy');
+Route::delete('/{id}', DestroyController::class)->name('destroy')->whereNumber('id');
 
 });
 
 //Manajemen Data Kelas (Resource)
-Route::resource('classes', MajorController::class);
+Route::resource('majors', MajorController::class);

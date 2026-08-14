@@ -20,7 +20,7 @@ class StudentController extends Controller
             [
                 'id' =>2,
                 'nis' => '22100002',
-                'name' => 'Budi Asiang',
+                'name' => 'Budi',
                 'class' => 'XII AKL 3',
                 'major' => 'AKL'
             ],
@@ -47,7 +47,7 @@ class StudentController extends Controller
 
     public function edit(string $id){
         $title = "Sistem Sekolah - edit Siswa";
-        return view('students.Edit', [
+        return view('students.edit', [
         'title' => $title,
         ]);
     }
