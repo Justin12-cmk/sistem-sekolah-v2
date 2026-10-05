@@ -79,7 +79,7 @@ class TeacherController extends Controller
 
     public function store()
     {
-        return "Melakukan penambahan data teacher baru";
+        
     }
 
     public function update(string $id)
